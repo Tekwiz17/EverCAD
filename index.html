@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#172b27" />
+    <title>EverCAD · Modeling workspace</title>
+    <link rel="icon" href="/mark.svg" />
+  </head>
+  <body>
+    <a class="skip" href="#command">Skip to modeling command</a>
+    <header>
+      <a class="brand" href="./" aria-label="EverCAD workspace"
+        ><img src="/mark.svg" alt="" />Ever<span>CAD</span></a
+      >
+      <div class="filetools" id="filetools"></div>
+      <div class="topend">
+        <button id="settings" aria-label="Settings" title="Settings"></button
+        ><button id="export" class="export">Export</button>
+      </div>
+    </header>
+    <main>
+      <section class="work">
+        <div class="projectbar">
+          <div>
+            <div class="eyebrow">MODELING WORKSPACE</div>
+            <h1 id="projectname">Untitled project</h1>
+          </div>
+          <button
+            id="rename"
+            title="Rename project"
+            aria-label="Rename project"
+          ></button>
+          <div class="historytools" id="histtools"></div>
+        </div>
+        <div
+          id="stage"
+          tabindex="0"
+          aria-label="Viewport. Arrow keys orbit. Plus and minus zoom."
+        >
+          <div class="viewtag">
+            <span class="live-dot"></span
+            ><select id="view" aria-label="View orientation">
+              <option>Isometric</option>
+              <option>Top</option>
+              <option>Front</option>
+              <option>Right</option>
+              <option>Left</option>
+              <option>Back</option>
+              <option>Bottom</option>
+            </select>
+          </div>
+          <button
+            id="cube"
+            title="Change orientation"
+            aria-label="Cycle standard orientations"
+          >
+            <svg viewBox="0 0 80 82" aria-hidden="true">
+              <path d="M9 23 40 7 71 23 40 40Z" fill="#f9fbf9" />
+              <path d="M9 23 40 40 40 72 9 55Z" fill="#d3ded8" />
+              <path d="M40 40 71 23 71 55 40 72Z" fill="#e5ebe7" />
+              <g fill="none" stroke="#758a80" stroke-linejoin="round">
+                <path
+                  d="M9 23 40 7 71 23 71 55 40 72 9 55ZM9 23 40 40 71 23M40 40V72"
+                />
+              </g>
+              <g
+                fill="#34483d"
+                font-size="10"
+                font-family="sans-serif"
+                text-anchor="middle"
+              >
+                <text x="40" y="27">TOP</text>
+                <text transform="translate(24 47) skewY(28)">F</text>
+                <text transform="translate(56 47) skewY(-28)">R</text>
+              </g>
+            </svg>
+          </button>
+          <div id="stageNotice" hidden></div>
+          <div id="dims" hidden></div>
+          <div class="axislabel" aria-hidden="true">
+            <svg viewBox="0 0 65 65">
+              <g fill="none" stroke-width="2">
+                <path stroke="#50827a" d="M27 42l22 -9" />
+                <path stroke="#ad6858" d="M27 42L9 32" />
+                <path stroke="#5a75a0" d="M27 42V13" />
+              </g>
+              <g fill="currentColor" font-size="10">
+                <text x="2" y="32">X</text>
+                <text x="51" y="33">Y</text>
+                <text x="24" y="10">Z</text>
+              </g>
+            </svg>
+          </div>
+          <div class="viewtools" id="viewtools"></div>
+        </div>
+        <div class="statusbar">
+          <span id="savestate"></span><span id="bodycount"></span
+          ><button id="paneltoggle" aria-expanded="true">Hide panel</button>
+        </div>
+      </section>
+      <aside id="panel">
+        <div class="paneltop">
+          <span class="eyebrow">MODELING TOOLS</span
+          ><button id="mode">Simple mode</button>
+        </div>
+        <h2>Command desk</h2>
+        <div class="tabs">
+          <button id="compose" aria-pressed="true">Create</button
+          ><button id="history" aria-pressed="false">History</button>
+        </div>
+        <div id="editor">
+          <label for="command">What would you like to make?</label
+          ><textarea
+            id="command"
+            maxlength="600"
+            placeholder="Describe a part or a change in your own words…"
+          ></textarea
+          ><button class="primary" id="apply">Create model</button>
+          <div id="feedback" role="status" aria-live="polite"></div>
+          <div class="exampleshead">
+            <h3>Try an example</h3>
+            <button id="examples">View all</button>
+          </div>
+          <div id="exampleslist"></div>
+        </div>
+        <div id="timeline" hidden></div>
+        <div id="advanced" hidden></div>
+        <div class="panelbottom">
+          <button id="guide">Workspace guide</button><span>EverCAD</span>
+        </div>
+      </aside>
+    </main>
+    <footer>
+      <span>Imagine it. Describe it. Make it.</span
+      ><span id="unitfoot">Units · mm</span>
+    </footer>
+    <dialog id="modal">
+      <div id="dialogbody"></div>
+      <form method="dialog"><button class="close">Close</button></form>
+    </dialog>
+    <input type="file" id="upload" accept=".evercad,.json,.step,.stp" hidden />
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

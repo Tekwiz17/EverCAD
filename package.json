@@ -1,0 +1,28 @@
+{
+  "name": "evercad",
+  "version": "1.0.0",
+  "description": "Local, deterministic solid modeling in the browser",
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "dev": "vite",
+    "build": "vite build && node scripts/notices.js",
+    "e2e": "playwright test"
+  },
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "lucide-static": "^1.78.0",
+    "replicad": "^1.2.1",
+    "replicad-opencascadejs": "^1.2.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "vite": "^8.3.8"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "private": true
+}
